@@ -1,0 +1,29 @@
+button.delete {
+  background-color: white;
+  color: #525252;
+  font-size: 1.1rem;
+  margin: 0;
+  padding: 1px 10px 3px 10px;
+}
+
+button.delete:hover {
+  background-color: #d23f3f;
+  color: white;
+}
+
+button.add {
+  background-color: white;
+  color: #525252;
+  font-size: 1.1rem;
+  margin: 0;
+  padding: 1px 10px 3px 10px;
+}
+
+button.add:hover {
+  background-color: #3fd241;
+  color: white;
+}
+
+.shop-now {
+  margin-left: 90px;
+}

@@ -1,0 +1,75 @@
+@if (items.length === 0) {
+<div
+  class="alert alert-danger mt-5 container orbit-regular text-center"
+  style="height: auto; width: 50%"
+  id="no-result"
+>
+  Your cart is empty !!!
+  <a routerLink="/home"><span class="btn btn-warning text-white ms-5 shop-now rounded-pill">Shop now</span></a>
+</div>
+} @else {
+<div class="container" style="height: auto; width: 50%" *ngIf="items">
+  <h4 class="d-flex justify-content-between align-items-center mb-3">
+    <span class="text-danger orbit-regular">Your cart</span>
+    <span class="badge bg-warning rounded-pill">{{ items.length }}</span>
+  </h4>
+  <ul class="list-group mb-3">
+    <li
+      class="list-group-item d-flex justify-content-between lh-sm"
+      *ngFor="let item of items"
+    >
+      <div>
+        <h6 class="my-0">{{ item.title }}</h6>
+        <small
+          ><span
+            ><button
+              type="button"
+              class="delete btn btn-outline-warning orbit-regular"
+              title="remove item"
+              (click)="removeFromCart(item)"
+            >
+              -
+            </button></span
+          ><span class="text-muted m-2 pill badge bg-warning">{{
+            item.qty
+          }}</span>
+          <span
+            ><button
+              type="button"
+              class="add btn btn-outline-warning orbit-regular"
+              title="add item"
+              (click)="addToCart(item)"
+            >
+              +
+            </button></span
+          ></small
+        >
+      </div>
+      <small>${{ item.price }}<span class="text-muted">/Unit</span></small>
+      <small class="text-muted me-5"
+        >Total:<span>${{ item.price * item.qty }}</span></small
+      >
+    </li>
+    <li class="list-group-item d-flex justify-content-between" *ngIf="total">
+      <span>Total (USD)</span>
+      <strong>${{ total }}</strong>
+    </li>
+  </ul>
+
+  <div class="card p-2">
+    <a routerLink="/checkout"
+      ><button type="submit" class="w-100 btn btn-warning">
+        Checkout (${{ total }})
+      </button></a
+    >
+  </div>
+</div>
+}
+<!-- 
+<ng-template class="container" style="height: auto; width: 50%" #noItems>
+    <div>
+      <h2 class="bg-warning ">
+        Your cart is empty !!!
+      </h2>
+    </div>
+</ng-template> -->

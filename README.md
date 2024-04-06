@@ -25,3 +25,21 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+<!-- 
+update cart description .
+revert getProductByCartegory to fetch from api.
+empty cart should return empty message.
+cart path should be updated.
+update cart item  price.
+
+remove item from cart.
+add badge to quantity.
+make each category functional.
+use modal
+search should work
+add cart to checkout
+add data to local storage
+each category should have the name heading it
+ -->

@@ -1,0 +1,130 @@
+<div class="container-fluid" style="height: auto; width: 80%">
+  <div
+    id="carouselExampleInterval"
+    class="carousel slide"
+    data-bs-ride="carousel"
+  >
+    <div class="carousel-indicators">
+      <button
+        type="button"
+        data-bs-target="#carouselExampleInterval"
+        data-bs-slide-to="0"
+        class="active"
+        aria-current="true"
+        aria-label="Slide 1"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleInterval"
+        data-bs-slide-to="1"
+        aria-label="Slide 2"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleInterval"
+        data-bs-slide-to="2"
+        aria-label="Slide 3"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleInterval"
+        data-bs-slide-to="3"
+        aria-label="Slide 4"
+      ></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="5000">
+        <a
+          ><img
+            class="d-block w-100"
+            src="../../assets/1.png"
+            alt="First slide"
+        /></a>
+      </div>
+      <div class="carousel-item" data-bs-interval="3000">
+        <img
+          class="d-block w-100"
+          src="../../assets/2.png"
+          alt="Second slide"
+        />
+      </div>
+      <div class="carousel-item" data-bs-interval="3000">
+        <img class="d-block w-100" src="../../assets/3.png" alt="Third slide" />
+      </div>
+      <div class="carousel-item" data-bs-interval="3000">
+        <img class="d-block w-100" src="../../assets/4.png" alt="Forth slide" />
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleInterval"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleInterval"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+<div class="container px-4 px-lg-5 mt-5">
+  <h2 class="fw-bolder mb-4 orbit-regular text-danger">Top selling items</h2>
+  <div
+    class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
+  >
+    <div class="col mb-5" *ngFor="let product of products">
+      <div class="card h-100">
+        <div class="backgroundEffect"></div>
+        <div
+          class="badge bg-warning text-white position-absolute"
+          style="top: 0.5rem; right: 0.5rem"
+        >
+          {{ product?.category }}
+        </div>
+        <!-- Product image-->
+        <a>
+          <img class="card-img-top" [src]="product?.thumbnail" alt="..." />
+        </a>
+        <!-- Product details-->
+        <div class="card-body p-4">
+          <div class="text-center">
+            <!-- Product name-->
+            <h5 class="fw-bolder">{{ product?.title }}</h5>
+            <!-- Product price-->
+            ${{ product?.price }}
+          </div>
+        </div>
+        <!-- Product actions-->
+        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+          <div class="text-center">
+            <a routerLink="/item-details/{{ product.id }}"
+              ><button
+                type="button"
+                class="btn btn-sm btn-outline-warning me-1"
+              >
+                View
+              </button></a
+            >
+            <button
+              (click)="addToCart(product)"
+              type="button"
+              class="btn btn-sm btn-outline-warning add-to-cart"
+              id="liveToastBtn"
+            >
+              Add to cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
