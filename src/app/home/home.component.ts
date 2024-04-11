@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
 import { BoostAppService } from '../services/boost-app.service';
 import { CartService } from '../services/cart.service';
-import { Product, ApiResponse } from '../products';
+import { Product } from '../products';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-home',
@@ -9,10 +11,11 @@ import { Product, ApiResponse } from '../products';
   styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
-  products: Product[] = [];
+  products$ = this.productService.products$;
   constructor(
     private boostAppService: BoostAppService,
-    private cartService: CartService
+    private cartService: CartService,
+    private productService: ProductService
   ) {}
 
   ngOnInit(): void {
@@ -20,13 +23,10 @@ export class HomeComponent implements OnInit {
   }
 
   getAllProducts(): void {
-    this.boostAppService
-      .getAllProducts()
-      .subscribe((res: ApiResponse) => (this.products = res.data));
+    this.productService.getSearchResults()
   }
 
   addToCart(product: Product): void {
-    this.cartService
-    .addToCart(product)
+    this.cartService.addToCart(product);
   }
 }

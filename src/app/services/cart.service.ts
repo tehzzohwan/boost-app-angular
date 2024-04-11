@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-
 import { BehaviorSubject } from 'rxjs';
+
 import { Product, CartProduct } from '../products';
 
 @Injectable({
@@ -44,11 +44,6 @@ export class CartService {
       this.cartItems.splice(itemIndex, 1);
     }
   }
-
-  // declear a count variable
-  // get cart items
-  // then set the count with items.length
-  //  when you add/remove to cart call this method
 
   getAllCartItems() {
     return this.cartItems;

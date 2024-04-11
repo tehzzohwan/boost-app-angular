@@ -26,7 +26,7 @@ export class ItemDetailsComponent implements OnInit {
   getProducts(): void {
     this.boostAppService
       .getAllProducts()
-      .subscribe((res: ApiResponse) => (this.products = res.data));
+      .subscribe((res: ApiResponse) => (this.products = res.data.products));
   }
 
   getProductById(): void {

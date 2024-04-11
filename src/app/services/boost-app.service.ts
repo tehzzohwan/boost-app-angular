@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
-import { Observable, of, map } from 'rxjs';
+import { Observable, of,  } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { Product, ApiResponse, ApiResponseII } from '../products';
+import { Product, ApiResponse, ApiResponseII, } from '../products';
 import { Category } from '../cartegory';
 
 @Injectable({
@@ -12,10 +11,6 @@ import { Category } from '../cartegory';
 })
 export class BoostAppService {
   private baseUrl = 'http://localhost:8080/api/products/';
-  private getProductByIdUrl = 'http://localhost:8080/api/products';
-  private getCategoriesUrl = 'http://localhost:8080/api/products/category';
-  private getProductsByCategoryUrl =
-    'http://localhost:8080/api/products/category';
 
   category: any;
 
@@ -25,9 +20,13 @@ export class BoostAppService {
 
   constructor(private http: HttpClient) {}
 
-  getAllProducts(): Observable<ApiResponse> {
+  getAllProducts(query?: string): Observable<ApiResponse> {
+    let url = this.baseUrl
+    if (query) {
+      url += `?title=${query}`
+    }
     return this.http
-      .get<ApiResponse>(this.baseUrl)
+      .get<ApiResponse>(url)
       .pipe(catchError(this.handleError<ApiResponse>('getProducts')));
   }
 
@@ -37,12 +36,12 @@ export class BoostAppService {
 
   getCategories(): Observable<Category> {
     return this.http
-      .get<Product[]>(this.getCategoriesUrl)
+      .get<Product[]>(this.baseUrl + 'category')
       .pipe(catchError(this.handleError<Product[]>('getCategories')));
   }
 
   getProductsByCategory(categoryName: string): Observable<ApiResponse> {
-    let url = `${this.getProductsByCategoryUrl}/${categoryName}`;
+    let url = `${this.baseUrl + 'category'}/${categoryName}`;
     return this.http.get<ApiResponse>(url);
   }
 

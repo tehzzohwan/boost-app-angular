@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
 import { BoostAppService } from '../services/boost-app.service';
 import { CartService } from '../services/cart.service';
 import { Product, ApiResponse } from '../products';
-import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-category',
@@ -39,7 +39,7 @@ export class CategoryComponent implements OnInit {
     this.boostAppService
       .getProductsByCategory(categoryName)
       .subscribe((res: ApiResponse) => {
-        this.products = res.data;
+        this.products = res.data.products;
       });
   }
 

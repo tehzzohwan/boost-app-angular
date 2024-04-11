@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { CartService } from '../services/cart.service';
 import { CartProduct, Product } from '../products';
 
@@ -33,12 +34,6 @@ export class CartComponent implements OnInit {
     this.cartService.removeFromCart(cartItem);
     this.totalPrice();
   }
-
-  // get all cart items
-  // loop through the items
-  // get the price and qty
-  // multiply the price and qty
-  // then add all the reults together
 
   totalPrice(): number | void {
     this.total = this.items.reduce(

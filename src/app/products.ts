@@ -20,10 +20,22 @@ export interface CartProduct extends Product {
 
 export interface ApiResponse {
   message: string;
-  data: Product[];
+  data: Result;
 }
 
 export interface ApiResponseII {
   message: string;
   data: Product;
+}
+
+export interface ApiResponseIII {
+  message: string;
+  data: Product[];
+}
+
+interface Result {
+  totalItems: number;
+  products: Product[];
+  totalPages: number;
+  currentPage: number;
 }
