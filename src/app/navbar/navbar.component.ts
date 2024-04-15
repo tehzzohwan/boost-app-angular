@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-
+import { Subject } from 'rxjs';
 
 import { BoostAppService } from '../services/boost-app.service';
 import { CartService } from '../services/cart.service';
 import { ProductService } from '../services/product.service';
 import { Category } from '../cartegory';
-import { ApiResponse, CartProduct, Product } from '../products';
+import { Product } from '../products';
 
 @Component({
   selector: 'app-navbar',
@@ -18,6 +16,7 @@ export class NavbarComponent implements OnInit {
   products: Product[] = [];
   categories: Category = [];
 
+  alert$ = this.cartService.alert$;
   count$ = this.cartService.count$;
   products$ = this.productService.products$;
   searchTerms = new Subject<string>();
@@ -56,6 +55,3 @@ export class NavbarComponent implements OnInit {
       .join(' ');
   }
 }
-
-//  two way bindind for the searchbar
-// if the length of the character is > 3 fire the find all

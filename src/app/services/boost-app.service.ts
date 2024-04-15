@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of,  } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { Product, ApiResponse, ApiResponseII, } from '../products';
+import { Product, ApiResponse, ApiResponseII, Result } from '../products';
 import { Category } from '../cartegory';
 
 @Injectable({
@@ -20,10 +20,14 @@ export class BoostAppService {
 
   constructor(private http: HttpClient) {}
 
-  getAllProducts(query?: string): Observable<ApiResponse> {
-    let url = this.baseUrl
+  getAllProducts(query?: string, page?: number): Observable<ApiResponse> {
+    let url = this.baseUrl;
     if (query) {
-      url += `?title=${query}`
+      url += `?title=${query}`;
+    }
+
+    if (page) {
+      url += `?page=${page}`;
     }
     return this.http
       .get<ApiResponse>(url)

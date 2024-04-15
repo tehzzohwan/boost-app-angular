@@ -29,3 +29,7 @@ a {
 .navbar .navbar-nav .nav-item:hover::after {
   width: 100%;
 }
+
+#message {
+  z-index: 3;
+}

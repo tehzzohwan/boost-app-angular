@@ -1,4 +1,20 @@
-<div class="container px-4 px-lg-5 mt-5">
+@if (products?.length === 0) {
+  <div class=" mt-5 container">
+     <h2 class="fw-bolder mb-4 orbit-regular text-warning" *ngIf=" products">{{category.includes("-")
+                ? convertToTitleCase(category)
+                : [category.slice(0, 1).toUpperCase() + category.slice(1)]}}
+    </h2>
+    <div
+      class="alert alert-warning mt-5 container orbit-regular text-center"
+      style="height: auto; width: 50%"
+      id="no-result"
+    >
+      Sorry this category is empty !!!
+    </div>
+  </div>
+ 
+} @else {
+  <div class="container px-4 px-lg-5 mt-5">
   <h2 class="fw-bolder mb-4 orbit-regular text-warning" *ngIf=" products && products.length > 0">{{category.includes("-")
                 ? convertToTitleCase(category)
                 : [category.slice(0, 1).toUpperCase() + category.slice(1)]}}</h2>
@@ -52,3 +68,4 @@
     </div>
   </div>
 </div>
+}

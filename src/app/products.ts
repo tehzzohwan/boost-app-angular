@@ -33,7 +33,7 @@ export interface ApiResponseIII {
   data: Product[];
 }
 
-interface Result {
+export interface Result {
   totalItems: number;
   products: Product[];
   totalPages: number;

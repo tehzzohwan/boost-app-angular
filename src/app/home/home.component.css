@@ -69,3 +69,10 @@ container-fluid {
     border: 1px solid #e72f22;
     color: black;
 }
+
+#message {
+    top: 0;
+    left: 0;
+    width: 100%;
+
+}

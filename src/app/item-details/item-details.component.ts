@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { BoostAppService } from '../services/boost-app.service';
-import { Product, ApiResponse, ApiResponseII } from '../products';
+import { Product, ApiResponse, ApiResponseII, Result } from '../products';
 
 @Component({
   selector: 'app-item-details',

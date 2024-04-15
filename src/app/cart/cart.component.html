@@ -1,11 +1,24 @@
 @if (items.length === 0) {
-<div
-  class="alert alert-danger mt-5 container orbit-regular text-center"
-  style="height: auto; width: 50%"
-  id="no-result"
->
-  Your cart is empty !!!
-  <a routerLink="/home"><span class="btn btn-warning text-white ms-5 shop-now rounded-pill">Shop now</span></a>
+<div class="mt-5 container">
+  <div
+    class="alert alert-danger mt-5 container orbit-regular text-center"
+    style="height: auto; width: 50%"
+    id="no-result"
+  >
+    Your cart is empty !!!
+    <a routerLink="/home"
+      ><span class="btn btn-warning text-white ms-5 shop-now rounded-pill"
+        >Shop now</span
+      ></a
+    >
+  </div>
+  <div class="text-center mt-5">
+    <img
+      style="height: auto; width: 30%;"
+      src="../../assets/emptycart.png"
+      alt="image of an empty cart"
+    />
+  </div>
 </div>
 } @else {
 <div class="container" style="height: auto; width: 50%" *ngIf="items">

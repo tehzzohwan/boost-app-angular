@@ -12,8 +12,10 @@ export class CartService {
   constructor() {}
 
   private count = new BehaviorSubject<number>(0);
+  private alert = new BehaviorSubject<string>('no');
 
   count$ = this.count.asObservable();
+  alert$ = this.alert.asObservable();
 
   addToCart(product: Product) {
     let item: CartProduct = this.cartItems.find(
@@ -29,8 +31,11 @@ export class CartService {
       };
       this.cartItems.push(newProduct);
     }
-    alert(`Product added successfully`);
     this.count.next(this.cartItems.length);
+    this.alert.next('yes')
+    setTimeout(() => {
+      this.alert.next('');
+    }, 3000);
   }
 
   removeFromCart(product: CartProduct) {
@@ -43,6 +48,12 @@ export class CartService {
     } else {
       this.cartItems.splice(itemIndex, 1);
     }
+    this.count.next(this.cartItems.length);
+    this.alert.next('no');
+    setTimeout(() => {
+      this.alert.next('');
+    }, 3000);
+    
   }
 
   getAllCartItems() {
