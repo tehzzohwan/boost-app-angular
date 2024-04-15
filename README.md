@@ -4,9 +4,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Clone, setup and run the backend server [Node.JS app](https://github.com/tehzzohwan/boost-app-api)
 
-Run the backend then connect on `http://localhost:8080/api/products`
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
@@ -28,17 +28,6 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-
-<!-- 
-update cart description .
-revert getProductByCartegory to fetch from api.
-empty cart should return empty message.
-cart path should be updated.
-update cart item  price.
-
-remove item from cart.
-add badge to quantity.
-make each category functional.
 use modal
 search should work
 add cart to checkout
